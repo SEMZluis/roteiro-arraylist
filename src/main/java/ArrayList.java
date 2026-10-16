@@ -1,17 +1,42 @@
 public class ArrayList {
-
+    private int[] arr;
+    private int last;
+    private int size;
    
     public ArrayList(int capacidadeInicial) {
-        // TODO
+        this.arr = new int[capacidadeInicial];
+        this.last = -1;
+        this.size = 0;
     }
 
     public boolean isEmpty() {
-        // TODO
-        return false;
+        return this.last == -1;
+    }
+
+    private void swap(int i, int j) {
+        int aux = this.arr[i];
+        this.arr[i] = this.arr[j];
+        this.arr[j] = aux;
+    }
+
+    private void shiftRight() {
+        for (int i = last; i > 0; i--) {
+            swap(i, i-1);
+        }
+    }
+
+    private void shiftLeft() {
+        for (int i = 0; i < last; i++) {
+            swap(i, i+1);
+        }
     }
 
     public void addFirst(int valor) {
-        // TODO
+        if (last + 1 == arr.length) resize((arr.length+1) * 2);
+        last++;
+        shiftRight();
+        arr[0] = valor;
+        size++;
     }
 
     public void addLast(int valor) {
@@ -25,7 +50,19 @@ public class ArrayList {
 
     // você vai precisar desse método quando tentar adicionar e a fila já estiver cheia
     private void resize(int novaCapacidade) {
-       // TODO 
+       int[] aux = new int[novaCapacidade];
+
+       for (int i = 0; i < arr.length; i++) {
+            aux[i] = arr[i];
+       }
+
+       this.arr = aux;
+
+    //    arr = new int[novaCapacidade];
+
+    //    for (int i = 0; i < aux.length; i++) {
+    //         arr[i] = aux[i];
+    //    }
     }
 
     public void assegureCapacidade(int capacidadePretendida) {
@@ -51,8 +88,9 @@ public class ArrayList {
 
     // deve lançar exceção caso a fila esteja vazia.
     public int removeFirst() {
-        // TODO 
-        return 0;
+        shiftLeft();
+        size--;
+        return arr[last--];
     }
 
     // deve lançar exceção caso a fila esteja vazia.
@@ -89,7 +127,6 @@ public class ArrayList {
     }
     
     public int size() {
-        // TODO
-        return 0;
+        return this.size;
     }
 }
