@@ -1,25 +1,23 @@
-import java.util.Arrays;
-
 public class ArrayListAsserts {
 
     public static void main(String[] args) {
         ArrayListAsserts t = new ArrayListAsserts();
 
         t.testIsEmpty();
-        // t.testLastIndexOf();
-        // t.testToString();
-        // t.testArrayListGet();
-        // t.testArrayListGetFirst();
-        // t.testArrayListGetLast();
-        // t.testArrayListIndexOf();
-        // t.testArrayListRemoveFirst();
-        // t.testArrayListRemoveLast();
-        // t.testArrayListRemove();
-        // t.testArrayListRemoveByValue();
-        // t.testArrayListAddLast();
-        // t.testArrayListAddFirst();
-        // t.testArrayListAdd();
-        // t.testArrayListSize();
+        t.testLastIndexOf();
+        t.testToString();
+        t.testArrayListGet();
+        t.testArrayListGetFirst();
+        t.testArrayListGetLast();
+        t.testArrayListIndexOf();
+        t.testArrayListRemoveFirst();
+        t.testArrayListRemoveLast();
+        t.testArrayListRemove();
+        t.testArrayListRemoveByValue();
+        t.testArrayListAddLast();
+        t.testArrayListAddFirst();
+        t.testArrayListAdd();
+        t.testArrayListSize();
 
         System.out.println("All tests passed!");
     }
